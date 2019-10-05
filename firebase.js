@@ -1,5 +1,5 @@
-import * as firebase from "firebase/app"
-import "firebase/database"
+const firebase = require("firebase/app")
+require("firebase/database")
 
 const firebaseConfig = {
   apiKey: "AIzaSyAsZX_GWlx0hkq0UJIXa-Nwxik6sVCczp0",
@@ -11,11 +11,12 @@ const firebaseConfig = {
   appId: "1:844505710758:web:0de6a895fad6c12cb73467",
   measurementId: "G-4VJFRECFJM",
 }
-// Initialize Firebase
-let db = null
-if (typeof window !== "undefined") {
+// Initialize Firebase the first time
+if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig)
-  db = firebase.database()
 }
-export default db
+
 // Get a reference to the database service
+const db = firebase.database()
+
+module.exports = db

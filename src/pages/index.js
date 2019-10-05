@@ -1,6 +1,7 @@
 import React from "react"
 import "../App.css"
-import { db } from "../firebase"
+import db from "../firebase"
+
 import Ball from "../Ball"
 import Court from "../Court"
 import { Helmet } from "react-helmet"
